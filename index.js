@@ -53,51 +53,6 @@ app.options('*', cors());
 // Configure routes
 const router = express.Router();
 
-// Hello World for index page
-//app.get('/', function (req, res) {
-//    return res.send("Hello World!");
-//})
-//New Code
-app.get('/', (req, res) => {
-    res.send(`
-        <html>
-        <head>
-            <title>Pizza Booking</title>
-            <link rel="stylesheet" href="/styles.css">
-        </head>
-        <body>
-            <h1>Order Your Pizza</h1>
-            <form action="/order" method="POST">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-
-                <label for="pizza">Choose a Pizza:</label>
-                <select id="pizza" name="pizza">
-                    <option value="Margherita">Margherita</option>
-                    <option value="Pepperoni">Pepperoni</option>
-                    <option value="Veggie">Veggie</option>
-                    <option value="BBQ Chicken">BBQ Chicken</option>
-                </select><br><br>
-
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="1" required><br><br>
-
-                <button type="submit">Order Pizza</button>
-            </form>
-        </body>
-        </html>
-    `);
-});
-
-// Route to handle pizza orders
-app.post('/order', (req, res) => {
-    const { name, pizza, quantity } = req.body;
-    res.send(`<h1>Thank you, ${name}!</h1>
-              <p>You have ordered ${quantity} ${pizza}(s).</p>
-              <p>Your order will be processed shortly!</p>
-              <a href="/">Order another pizza</a>`);
-});
-// End of New Code
 app.get('/api', function (req, res) {
     return res.send("Fabrikam Bank API");
 })
